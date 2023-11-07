@@ -64,6 +64,27 @@ class Job {
         $this->db->bind(':job_id', $job_id);
         $row = $this->db->single();
         return $row;
+    }
+
+    public function createJob($data) {
+
+        $sql = "INSERT INTO jobs (category_id, job_title, comapny, description, location, salary, contact_user, contact_email) 
+                VALUES (:category_id, :job_title, :comapny, :description, :location, :salary, :contact_user, :contact_email)";
+        $this->db->query($sql);
+
+        $this->db->bind(':category_id', $data['category_id']);
+        $this->db->bind(':job_title', $data['job_title']);
+        $this->db->bind(':comapny', $data['comapny']);
+        $this->db->bind(':description', $data['description']);
+        $this->db->bind(':location', $data['location']);
+        $this->db->bind(':salary', $data['salary']);
+        $this->db->bind(':contact_user', $data['contact_user']);
+        $this->db->bind(':contact_email', $data['contact_email']);
+
+        if ($this->db->execute()) {
+            return true;
+        }
+        return false;
 
     }
 }
