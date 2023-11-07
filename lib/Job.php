@@ -68,23 +68,17 @@ class Job {
 
     public function createJob($data) {
 
-        $sql = "INSERT INTO jobs (category_id, job_title, comapny, description, location, salary, contact_user, contact_email) 
-                VALUES (:category_id, :job_title, :comapny, :description, :location, :salary, :contact_user, :contact_email)";
-        $this->db->query($sql);
+        $columns = implode(', ', array_keys($data));
+        $values = "'" . implode("', '", $data) . "'";
 
-        $this->db->bind(':category_id', $data['category_id']);
-        $this->db->bind(':job_title', $data['job_title']);
-        $this->db->bind(':comapny', $data['comapny']);
-        $this->db->bind(':description', $data['description']);
-        $this->db->bind(':location', $data['location']);
-        $this->db->bind(':salary', $data['salary']);
-        $this->db->bind(':contact_user', $data['contact_user']);
-        $this->db->bind(':contact_email', $data['contact_email']);
+        $sql = "INSERT INTO jobs ($columns) VALUES ($values);";
+        $this->db->query($sql);
 
         if ($this->db->execute()) {
             return true;
+        } else {
+            return false;
         }
-        return false;
-
+        
     }
 }

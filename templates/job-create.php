@@ -2,10 +2,10 @@
 
       <div class="jumbotron">
         <h1>Create Job Listing</h1>
-        <form method="post" action ="create.php" >
+        <form method="POST" action ="create.php">
             <div class = 'form-group'>
                 <label> Company </label> 
-                <input type="text" class="form-control" name="comapny">
+                <input type="text" class="form-control" name="company">
             </div>
             <div class = 'form-group'>
                 <label> Category </label> 
@@ -41,10 +41,9 @@
                 <label> Contact Email </label> 
                 <input type="text" class="form-control" name="contact_email">
             </div>
-          <input type="submit" class="btn btn-lg btn-success" value="submit" name="submit">
+          <input type="submit" class="btn btn-lg btn-success" value="Submit" name="submit">
         </form>
       </div>
-
 
     
 <?php include 'inc/footer.php'; ?>
