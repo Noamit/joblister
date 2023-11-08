@@ -81,4 +81,35 @@ class Job {
         }
         
     }
+
+    public function updateJob($job_id, $data) {
+        $set = array();
+
+        foreach ($data as $column => $value) {
+            $set[] = "$column = '$value'";
+        }
+
+        $set = implode (', ' , $set);
+        $sql = "UPDATE jobs SET $set WHERE id=$job_id";
+        $this->db->query($sql);
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteJob($job_id) {
+        $sql = "DELETE FROM jobs WHERE id = $job_id";
+        $this->db->query($sql);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 }
