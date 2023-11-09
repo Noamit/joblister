@@ -9,9 +9,9 @@ $category = isset($_GET['category']) ? $_GET['category'] : null;
 
 if ($category) {
     $template->jobs = $job->getJobsByCategory($category);
-    $template->title = 'Jobs In ' . $job->getCategory($category)->name; 
+    $template->title = 'Jobs In ' . $job->getCategory($category)->name;
 } else {
-    $template->title = 'latest job'; 
+    $template->title = 'latest job';
     $template->jobs = $job->getAllJobs();
 }
 
@@ -19,4 +19,3 @@ if ($category) {
 
 $template->categories = $job->getCategories();
 echo $template;
-

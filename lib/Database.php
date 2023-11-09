@@ -1,12 +1,12 @@
 <?php
 class Database {
+    //Constant declared at config/config.php
     private $servername = DB_HOST;
     private $username = DB_USER;
     private $password = DB_PASS;
     private $dbname = DB_NAME;
 
     private $dbh;
-    private $error;
     private $stmt;
 
     public function __construct() {
@@ -21,7 +21,6 @@ class Database {
             $this->dbh = new PDO($dsn, $this->username, $this->password, $options);
         }
         catch(PDOException $e) {
-            // $this->error = $e->getMessage();
             echo "Connection failed: " .  $e->getMessage();
         }
     }
