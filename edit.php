@@ -17,19 +17,11 @@ if(isset($_POST['submit'])) {
     $data['contact_user'] = $_POST['contact_user'];
     $data['contact_email'] = $_POST['contact_email'];
 
-    
     if($job->updateJob($job_id, $data)) {
-        echo '<div class="alert alert-success">' . 'success' . '</div>';
+        redirect('index.php', 'edit - success', 'success');
+    } else {
+        redirect('index.php', 'edit - error', 'error');
     }
-    else {
-        echo '<div class="alert alert-danger">' . 'error' . '</div>'; 
-    }
-    // redirect('index.php', 'bb', 'bb');
-    // if($job->createJob($data)) {
-    //     redirect('index.php', 'your job has been listed', 'success');
-    // } else {
-    //     redirect('index.php', 'Something went wrong', 'error');
-    // }
 } 
 
 $template = new Template('templates/job-edit.php');

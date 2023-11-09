@@ -13,7 +13,7 @@
             <a href="edit.php?id=<?php echo $job->id;?>" class="btn btn-secondary">
                 Edit 
             </a>
-            <form style="display:inline;" method="POST" action="index.php">
+            <form style="display:inline;" method="POST" action="job.php">
                 <input type="hidden" name="del_id" value=<?php echo $job->id;?>>
                 <input type="submit" class="btn btn-danger" value="Delete">
             </form>
