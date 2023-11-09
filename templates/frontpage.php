@@ -22,7 +22,7 @@
         <p><?php echo $job->description?></p>
     </div>
     <div class="col-md-2">
-        <a class="btn btn-primary" href="job.php?id=<?php echo $job->id;?>"> view </a>
+        <a class="btn btn-secondary" href="job.php?id=<?php echo $job->id;?>"> view </a>
     </div>
 </div>
 <?php endforeach; ?>
