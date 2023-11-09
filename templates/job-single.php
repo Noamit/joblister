@@ -5,9 +5,11 @@
         <?php echo $job->job_title; ?>
     </h4>
     <?php foreach ($job as $key => $value): ?>
-    <p>
+    <?php if ($key != 'id' && $key != 'category_id'): ?>
+    <div>
         <?php echo $key . ' : ' . $value; ?>
-    </p>
+    </div>
+    <?php endif; ?>
     <?php endforeach; ?>
 </div>
 <div>
